@@ -1,0 +1,28 @@
+{% extends "layout.html" %} {% block content %}
+<div>
+<h3 class=mb-3>Posts by {{user.username}} ({{posts.total}})</h3>
+{% for post in posts.items %}
+
+<main role="main" class="container">
+    <img class="rounded-circle rounded float-left img-thumbnail article-img" src="{{url_for('static', filename='profile_pics/'+post.author.image_file)}}">
+    <div class="row">
+        <div class="col-md-8 blog-main">
+            <div class="blog-post">
+                <h2 class="blog-post-title">
+                    <a class="article-title" href="{{ url_for('posts.post', post_id=post.id) }}">{{post.title}}</a>
+                </h2>
+                <p class="blog-post-meta">{{post.date_posted.strftime('%B %d, %Y')}} by <a href="#">{{post.author.username}}</a></p>
+                <p>{{post.content}}</p>
+            </div>
+            <!-- /.blog-post -->
+        </div>
+    </div>
+</main>
+{% endfor %}
+<nav class="blog-pagination">
+{% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %} {% if page_num %} {% if posts.page == page_num%}
+<a class="btn btn-outline-primary" href="{{url_for('users.user_posts', username=user.username, page=page_num)}}">{{page_num}}</a> {% else %}
+<a class="btn btn-outline-secondary" href="{{url_for('users.user_posts', username=user.username, page=page_num)}}">{{page_num}}</a> {% endif %} {% else %}... {% endif %} {% endfor %}
+</nav>
+</div>
+{% endblock content %}
