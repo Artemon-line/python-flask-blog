@@ -6,7 +6,7 @@ python:
 install:
   - pip install -r requirements/dev.txt
 script:
-  - behave
+  - behave test/features/
 deploy:
   provider: heroku
   api_key:
