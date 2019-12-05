@@ -8,5 +8,4 @@ def step_impl(ctx):
 
 @then(u'{text} should be displayed')
 def step_impl(ctx, text):
-    print(ctx.resp)
     assert text in ctx.resp
