@@ -3,7 +3,14 @@ services:
 language: python
 python:
   - "3.7"
-
-after_success:
-  - sh .travis/deploy_dockerhub.sh
-  - test "$TRAVIS_BRANCH" = "master" && sh .travis/deploy_heroku.sh
+install:
+  - pip install -r requirements/dev.txt
+script:
+  - behave
+deploy:
+  provider: heroku
+  api_key:
+    secure: gg8ezHt92LDk2+hsE5WSRbJe7vY0Q46bl+DVJwo+o4mtwmiXCOG9yeQgRHfbRAD/u7r0jhylOThk6cdqUyu+cpNq6ZJhMWDMJIrBBBdq0UZ7wBMPa7p0XOWb1m1s59on4cLAtPshAHEk+8G5mkp1/+FW73XTI+STVLDtxcb6cI92/fVV9KTLv8BF6PhKWRpkw80ur6jPF5jH1Qq1ggvwfubnTgsddyA61WqPUM+GSvhatixBTpV9lV5rONyCQD8LCRvQgdM9qOQZwUjYqODTMIj4oAe9C6+e/YPST432k3qgxr8l9zrMbWjJiZJuq+GhJcNfwtK3rftX4xlWObFkbeDCF7EOldsidAZ9FxxKHqOjiYvTJEsg73hFqMw09ocShgBDff+in0U9UEqYepQvv6lKdQee5o68HxgAP6Z+D2c6iKTLX44qoPqqjFsp+uiT6I+plZ3gVEO1slX44zuIcfPBmEFohNimVinXTSi0qFSYn84Fm4v2heX2v3bbhQgUAW3I1G08CRkqMLanmjYzBPLjLSrtvIYZhi+ZTGpjvnQiENosdpfpBr3D304bV0zSFn45wkcM7bYNNjwc9dJG3a+TAWS905+fYbgKNjpHFmdSIKgePm2kUpUYlQwU16CbmGKw1dSfX+0HrVzyaaKqWDTThhti2saCF2jdZgL9H7k=
+  app: python-flask-blog
+  on:
+    repo: Artemon-line/python-flask-blog
