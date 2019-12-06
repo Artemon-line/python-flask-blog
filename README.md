@@ -4,7 +4,7 @@ Example of simple blog site
 created with Flask Framework
 
 [![Build Status](https://travis-ci.com/Artemon-line/python-flask-blog.svg?branch=master)](https://travis-ci.com/Artemon-line/python-flask-blog)
-[![Heroku](https://heroku-badge.herokuapp.com/?app={python-flask-blog-example})](https://python-flask-blog-example.herokuapp.com/)
+[![Heroku](https://heroku-badge.herokuapp.com/?app=python-flask-blog-example)](https://python-flask-blog-example.herokuapp.com/)
 
 
 ## Usage
