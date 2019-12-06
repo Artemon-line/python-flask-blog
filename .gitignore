@@ -1,6 +1,5 @@
 .env
 .vscode
-flaskblog/static/profile_pics/
 flaskblog/__pycache__
 flaskblog/users/__pycache__
 flaskblog/posts/__pycache__
