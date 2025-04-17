@@ -1,5 +1,5 @@
 -r prod.txt
 
 behave==1.2.6
-WebTest==2.0.33
+WebTest==3.0.0
 
